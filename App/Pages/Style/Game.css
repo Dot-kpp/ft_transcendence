@@ -5,3 +5,17 @@
   justify-content: center;
   height: 100vh;
 }
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(0, 255, 255, 0.197);
+}
+
+#pongCanvas {
+  width: 100%;
+  position: absolute;
+}
