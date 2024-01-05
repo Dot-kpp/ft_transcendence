@@ -1,3 +1,16 @@
+// Get the start button from the HTML
+const startButton = document.getElementById('startButton');
+let isGameRunning = false;
+
+// Event listener for the start button
+startButton.addEventListener('click', function() {
+    // Start the game loop
+    isGameRunning = true;
+    loop();
+
+    // Disable the start button
+    startButton.disabled = true;
+});
 // Get the canvas element from the HTML
 const canvas = document.getElementById('pongCanvas');
 const context = canvas.getContext('2d');
@@ -127,9 +140,13 @@ function moveBall() {
     // Check if the ball is out of bounds
     if(ball.x + ball.radius < 0) {
         alert('Player 2 wins!');
+        isGameRunning = false;
+        startButton.disabled = false;
         resetBall();
     } else if(ball.x - ball.radius > canvas.width) {
         alert('Player 1 wins!');
+        isGameRunning = false;
+        startButton.disabled = false;
         resetBall();
     }
 }
@@ -146,9 +163,9 @@ function update() {
 
 // Loop the update function
 function loop() {
-    update();
-    requestAnimationFrame(loop);
+    if(isGameRunning) {
+        update();
+        requestAnimationFrame(loop);
+    }
 }
 
-// Start the game loop
-loop();

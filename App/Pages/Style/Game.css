@@ -11,10 +11,23 @@
   align-items: center;
   /* justify-content: center; */
   /* height: 100vh; */
+  position: relative;
+}
+
+#startButton:disabled {
+  display: none; /* Hide the button by default */
+}
+
+#startButton {
+  display: inline-block; /* Show the button when it's disabled */
+  position: absolute;
+  font-size: 3rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #pongCanvas {
   width: 100%;
   background-color: rgba(0, 255, 255, 0.197);
-  position: absolute;
 }
