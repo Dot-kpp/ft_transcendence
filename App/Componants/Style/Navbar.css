@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #33333326;
+    overflow: hidden;
+}
+
+.navbar a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar h1 {
+    margin: 0;
+    padding: 14px 16px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
