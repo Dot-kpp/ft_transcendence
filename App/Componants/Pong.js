@@ -1,6 +1,8 @@
 // Get the start button from the HTML
 const startButton = document.getElementById('startButton');
 let isGameRunning = false;
+let score1 = 0, score2 = 0;
+let highScore = 0;
 
 // Event listener for the start button
 startButton.addEventListener('click', function() {
@@ -22,7 +24,7 @@ const paddle1 = {
     y: canvas.height / 2 - paddleHeight / 2,
     width: paddleWidth,
     height: paddleHeight,
-    dy: 2
+    dy: 4
 };
 
 const paddle2 = {
@@ -30,7 +32,7 @@ const paddle2 = {
     y: canvas.height / 2 - paddleHeight / 2,
     width: paddleWidth,
     height: paddleHeight,
-    dy: 2
+    dy: 4
 };
 
 // Variables to hold arrow key states
@@ -103,15 +105,15 @@ document.addEventListener('keyup', function(event) {
 
 // Move the paddles
 function movePaddles() {
-    if(upArrow && paddle1.y > 0) {
+    if(wKey && paddle1.y > 0) {
         paddle1.y -= paddle1.dy;
-    } else if(downArrow && paddle1.y + paddle1.height < canvas.height) {
+    } else if(sKey && paddle1.y + paddle1.height < canvas.height) {
         paddle1.y += paddle1.dy;
     }
 
-    if(wKey && paddle2.y > 0) {
+    if(upArrow && paddle2.y > 0) {
         paddle2.y -= paddle2.dy;
-    } else if(sKey && paddle2.y + paddle2.height < canvas.height) {
+    } else if(downArrow && paddle2.y + paddle2.height < canvas.height) {
         paddle2.y += paddle2.dy;
     }
 }
@@ -132,19 +134,28 @@ function moveBall() {
 
     // Ball and paddle collision detection
     if(ball.dx < 0 && ball.x - ball.radius < paddle1.x + paddle1.width && ball.y > paddle1.y && ball.y < paddle1.y + paddle1.height) {
-        ball.dx *= -1;
+        ball.dx *= -1.1; // Reflect the ball and increase its speed
+        ball.dy *= 1.1; // Increase the vertical speed
     } else if(ball.dx > 0 && ball.x + ball.radius > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddle2.height) {
-        ball.dx *= -1;
+        ball.dx *= -1.1; // Reflect the ball and increase its speed
+        ball.dy *= 1.1; // Increase the vertical speed
     }
-
     // Check if the ball is out of bounds
     if(ball.x + ball.radius < 0) {
         alert('Player 2 wins!');
+        score2++; // Player 2 scores
+        if(score2 > highScore) {
+            highScore = score2; // Update high score
+        }
         isGameRunning = false;
         startButton.disabled = false;
         resetBall();
     } else if(ball.x - ball.radius > canvas.width) {
         alert('Player 1 wins!');
+        score1++; // Player 1 scores
+        if(score1 > highScore) {
+            highScore = score1; // Update high score
+        }
         isGameRunning = false;
         startButton.disabled = false;
         resetBall();
@@ -161,10 +172,18 @@ function update() {
     moveBall();
 }
 
+function drawScores() {
+    context.font = '20px Arial';
+    context.fillText(`Player 1 Score: ${score1}`, 10, 25);
+    context.fillText(`Player 2 Score: ${score2}`, canvas.width - 170, 25);
+    // context.fillText(`High Score: ${highScore}`, canvas.width / 2 - 50, 25);
+}
+
 // Loop the update function
 function loop() {
     if(isGameRunning) {
         update();
+        drawScores();
         requestAnimationFrame(loop);
     }
 }
