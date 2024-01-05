@@ -9,6 +9,16 @@ body {
     animation: Gradient 8s ease infinite;
 }
 
+footer {
+    background-color: #f8f9fa12;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 @keyframes Gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -19,3 +29,4 @@ h1 {
     color: #333;
     text-align: center;
 }
+
