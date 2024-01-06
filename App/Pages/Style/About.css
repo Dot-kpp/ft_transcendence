@@ -12,6 +12,12 @@
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
+.text-box {
+  padding-left: 20vw;
+  padding-right: 20vw;
+  padding-bottom: 20px;
+}
+
 .carousel {
   position: relative;
   overflow: hidden;
@@ -30,7 +36,7 @@
   box-sizing: border-box;
   padding: 20px;
   text-align: center;
-  background-color: #ffffff58;
+  background-color: #ffffff17;
   border-radius: 10px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -59,11 +65,9 @@
   right: 10px;
 }
 
-
 .profile-card {
   width: 300px;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
