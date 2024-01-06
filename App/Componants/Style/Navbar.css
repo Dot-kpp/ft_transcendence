@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     background-color: #33333326;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .navbar a {

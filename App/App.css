@@ -1,5 +1,3 @@
-/* here we can start planning out the website specific styles like color pallet, sizing, things like that */
-
 body {
     font-family: Arial, sans-serif;
     margin: auto auto;
@@ -7,7 +5,7 @@ body {
     background: linear-gradient(270deg, #5b007484, #ec347d87);
     background-size: 200% 200%;
     animation: Gradient 8s ease infinite;
-    padding-bottom: 100px; /* to makeup for the footer so things to go behind it.. */
+    padding-bottom: 100px;
 }
 
 footer {
@@ -23,7 +21,7 @@ footer {
 p {
     color: #666;
     font-size: 1.2rem;
-  }
+}
   
 h1 {
     color: #333;
@@ -42,9 +40,29 @@ h3 {
     text-align: center;
 }
 
-
 @keyframes Gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }
