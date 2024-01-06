@@ -1,4 +1,5 @@
 .home-content-container-column {
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,16 +11,6 @@
   align-items: center;
   justify-content: center;
 }
-.home-box-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #333333;
-  border-radius: 10px;
-  background-color: #ffffff71;
-}
-
 .text-animation {
   font-size: 3rem;
   font-weight: 700;
