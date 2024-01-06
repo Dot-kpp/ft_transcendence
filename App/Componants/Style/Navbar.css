@@ -2,20 +2,24 @@
     display: flex;
     align-items: center;
     background-color: #33333326;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .navbar a {
-    display: block;
+    display: flex;
+    align-items: center;
+    height: 50px; /* Set a specific height */
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    font-weight: bold;
+    padding: 0 16px;
     text-decoration: none;
+    transition: background-color 0.5s ease;
 }
 
 .navbar h1 {
     margin: 0;
-    padding: 14px 16px;
+    padding: 5px 16px;
 }
 
 .navbar a:hover {
