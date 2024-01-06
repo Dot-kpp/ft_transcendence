@@ -15,26 +15,44 @@
   font-size: 5rem;
   font-weight: 1000;
   color: #333333;
+  text-shadow: 0px 62px 34px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin: 0;
   padding: 0;
-  animation: text-animation 5s ease-in-out infinite;
+  animation: text-animation 8s ease-in-out infinite;
 }
 
 @keyframes text-animation {
   0% {
     color: #dd0ebb;
+    text-shadow: 0px 62px 34px rgba(0, 0, 0, 0.1);
+  }
+  10% {
+    color: #dd0ebb2c;
+    text-shadow: 0px 62px 34px rgba(0, 0, 0, 0.1);
   }
   25% {
     color: #dd0ebba0;
+    text-shadow: 0px 62px 34px rgba(0, 0, 0, 0.048);
   }
   50% {
     color: #dd0ebb86;
+    text-shadow: 0px 52px 24px rgba(0, 0, 0, 0.041);
+  }
+  60% {
+    color: #dd0ebbb7;
+    text-shadow: 0px 48px 20px rgba(0, 0, 0, 0.116);
   }
   75% {
     color: #dd0ebb4a;
+    text-shadow: 0px 46px 14px rgba(0, 0, 0, 0.021);
+  }
+  80% {
+    color: #dd0ebb;
+    text-shadow: 0px 40px 4px rgba(0, 0, 0, 0);
   }
   100% {
     color: #dd0ebb00;
+    text-shadow: 0px 40px 4px rgba(0, 0, 0, 0);
   }
 }
