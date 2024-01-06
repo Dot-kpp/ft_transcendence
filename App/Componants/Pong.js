@@ -61,7 +61,7 @@ const paddle1 = {
     y: canvas.height / 2 - paddleHeight / 2,
     width: paddleWidth,
     height: paddleHeight,
-    dy: 18
+    dy: 10
 };
 
 const paddle2 = {
@@ -69,7 +69,7 @@ const paddle2 = {
     y: canvas.height / 2 - paddleHeight / 2,
     width: paddleWidth,
     height: paddleHeight,
-    dy: 18
+    dy: 10
 };
 
 // Variables to hold arrow key states
