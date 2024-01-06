@@ -1,4 +1,13 @@
 let currentSlide = 0;
+let slideInterval;
+
+function startSlideShow() {
+    slideInterval = setInterval(nextSlide, 6000); // We can chage the slide time here
+}
+
+function stopSlideShow() {
+    clearInterval(slideInterval);
+}
 
 function showSlide(index) {
     const carouselInner = document.querySelector(".carousel-inner");
@@ -16,9 +25,15 @@ function showSlide(index) {
 }
 
 function prevSlide() {
+    stopSlideShow();
     showSlide(currentSlide - 1);
+    startSlideShow();
 }
 
 function nextSlide() {
+    stopSlideShow();
     showSlide(currentSlide + 1);
+    startSlideShow();
 }
+
+startSlideShow();

@@ -3,27 +3,13 @@
   padding-top: 20px;
 }
 
-.about-content-container h1 {
-  color: #333;
-}
-
 .about-project,
 .our-team {
   text-align: center;
-  background-color: #ffffff36;
+  /* background-color: #ffffff36; */
   margin-bottom: 20px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.about-project h1,
-.our-team h1 {
-  color: #333;
-}
-
-.about-project p,
-.our-team p {
-  color: #666;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .carousel {
@@ -71,4 +57,25 @@
 
 .carousel-control-next {
   right: 10px;
+}
+
+
+.profile-card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.profile-image {
+  height: auto;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+}
+
+.profile-description {
+  margin-top: 20px;
 }

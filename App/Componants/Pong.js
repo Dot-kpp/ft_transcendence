@@ -105,7 +105,19 @@ function drawBall(x, y, radius) {
     context.closePath();
 }
 
-// Event listeners for keydown and keyup events
+const netWidth = 4;
+const netHeight = 5;
+const netGap = 10;
+
+// Draw the net
+function drawNet() {
+    for(let i = 0; i <= canvas.height; i += netHeight + netGap) {
+        context.fillStyle = 'white';
+        context.fillRect(canvas.width / 2 - netWidth / 2, i, netWidth, netHeight);
+    }
+}
+
+// Event listeners for keydown and keyup eventssa
 document.addEventListener('keydown', function(event) {
     switch(event.keyCode) {
         case 38: // Up arrow key
@@ -219,6 +231,7 @@ function update() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawPaddle(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
     drawPaddle(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+    drawNet();
     drawBall(ball.x, ball.y, ball.radius);
     movePaddles();
     moveBall();
@@ -226,8 +239,8 @@ function update() {
 
 function drawScores() {
     context.font = '20px Arial';
-    context.fillText(`Player 1 Score: ${score1}`, 10, 25);
-    context.fillText(`Player 2 Score: ${score2}`, canvas.width - 170, 25);
+    context.fillText(`Player 1 Score: ${score1}`, 20, 25);
+    context.fillText(`Player 2 Score: ${score2}`, canvas.width - 175, 25);
     // context.fillText(`High Score: ${highScore}`, canvas.width / 2 - 50, 25);
 }
 
