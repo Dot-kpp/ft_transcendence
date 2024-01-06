@@ -1,8 +1,32 @@
 // Get the start button from the HTML
-const startButton = document.getElementById('startButton');
+const startButton = document.getElementById('playerVsPlayerButton');
+const playerVsComputerButton = document.getElementById('playerVsComputerButton');
+let vsComputer = false;
 let isGameRunning = false;
 let score1 = 0, score2 = 0;
 let highScore = 0;
+
+playerVsComputerButton.addEventListener('click', function() {
+    // Start the game loop
+    isGameRunning = true;
+    vsComputer = true;
+    loop();
+
+    // Disable the start button
+    playerVsComputerButton.disabled = true;
+    startButton.disabled = true;
+});
+
+startButton.addEventListener('click', function() {
+    // Start the game loop
+    isGameRunning = true;
+    vsComputer = false;
+    loop();
+
+    // Disable the start button
+    playerVsComputerButton.disabled = true;
+    startButton.disabled = true;
+});
 
 window.addEventListener('keydown', function(event) {
     // Check if the key that was pressed was the Esc key
@@ -116,7 +140,6 @@ document.addEventListener('keyup', function(event) {
     }
 }, false);
 
-// Move the paddles
 function movePaddles() {
     if(wKey && paddle1.y > 0) {
         paddle1.y -= paddle1.dy;
@@ -124,12 +147,26 @@ function movePaddles() {
         paddle1.y += paddle1.dy;
     }
 
-    if(upArrow && paddle2.y > 0) {
-        paddle2.y -= paddle2.dy;
-    } else if(downArrow && paddle2.y + paddle2.height < canvas.height) {
-        paddle2.y += paddle2.dy;
+    if(vsComputer) {
+        // AI for paddle2
+        paddle2.y = ball.y - paddleHeight / 2;
+
+        // Ensure paddle2 stays within the canvas
+        if (paddle2.y < 0) {
+            paddle2.y = 0;
+        } else if (paddle2.y + paddle2.height > canvas.height) {
+            paddle2.y = canvas.height - paddle2.height;
+        }
+    } else {
+        if(upArrow && paddle2.y > 0) {
+            paddle2.y -= paddle2.dy;
+        } else if(downArrow && paddle2.y + paddle2.height < canvas.height) {
+            paddle2.y += paddle2.dy;
+        }
     }
 }
+
+
 function resetBall() {
     ball.x = canvas.width / 2;
     ball.y = canvas.height / 2;
@@ -162,6 +199,7 @@ function moveBall() {
         }
         isGameRunning = false;
         startButton.disabled = false;
+        playerVsComputerButton.disabled = false;
         resetBall();
     } else if(ball.x - ball.radius > canvas.width) {
         alert('Player 1 wins!');
@@ -171,6 +209,7 @@ function moveBall() {
         }
         isGameRunning = false;
         startButton.disabled = false;
+        playerVsComputerButton.disabled = false;
         resetBall();
     }
 }

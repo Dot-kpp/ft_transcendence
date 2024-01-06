@@ -14,15 +14,27 @@
   position: relative;
 }
 
-#startButton:disabled {
+#playerVsPlayerButton:disabled {
   display: none; /* Hide the button by default */
 }
 
-#startButton {
+#playerVsPlayerButton {
   display: inline-block; /* Show the button when it's disabled */
   position: absolute;
   font-size: 3rem;
-  top: 50%;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#playerVsComputerButton:disabled {
+  display: none; /* Hide the button by default */
+}
+
+#playerVsComputerButton {
+  display: inline-block; /* Show the button when it's disabled */
+  position: absolute;
+  font-size: 3rem;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
