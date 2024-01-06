@@ -4,6 +4,19 @@ let isGameRunning = false;
 let score1 = 0, score2 = 0;
 let highScore = 0;
 
+window.addEventListener('keydown', function(event) {
+    // Check if the key that was pressed was the Esc key
+    if (event.key === 'Escape') {
+        // Toggle the isGameRunning variable
+        isGameRunning = !isGameRunning;
+
+        // If the game is running again after being paused, call the loop function
+        if (isGameRunning) {
+            loop();
+        }
+    }
+});
+
 // Event listener for the start button
 startButton.addEventListener('click', function() {
     // Start the game loop
