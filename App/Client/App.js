@@ -44,8 +44,14 @@ function showPage(pageName) {
                 // Insert the page content into the main content div
                 document.getElementById('main-content').innerHTML = html;
 
-                if (pageName === './Pages/game') {
+                // Add the page to the history stack
+                history.pushState({ pageName }, '', `#${pageName}`);
+
+                if (pageName === 'game') {
                     startGame();
+                }
+                if (pageName === 'about') {
+                    startSlideShow();
                 }
             })
             .catch(error => {
@@ -53,3 +59,13 @@ function showPage(pageName) {
             });
     }
 }
+
+// Listen for popstate events
+window.addEventListener('popstate', (event) => {
+    if (event.state && event.state.pageName) {
+        showPage(event.state.pageName);
+    } else {
+        // If there's no state, show the index page
+        showPage('index');
+    }
+});
