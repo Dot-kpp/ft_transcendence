@@ -11,15 +11,19 @@
 </head>
 <body>
     <nav class="navbar">
-        <a href="index.html"><h1>Transcendence</h1></a>
-        <a href="Pages/game.html">Local Game</a>
-        <a href="Pages/login.html">Login</a>
-        <a href="Pages/about.html">About</a>
+        <a onclick="showPage('index')"><h1>Transcendence</h1></a>
+        <a onclick="showPage('./Pages/game')">Local Game</a>
+        <a onclick="showPage('./Pages/login')">Login</a>
+        <a onclick="showPage('./Pages/about')">About</a>
     </nav>
-    <div class="home-content-container-column">
+
+    <!-- Home page -->
+    <div class="main-app-container" id="main-content">
         <!-- <div class="home-box-container">
             <h1 class="text-animation">Welcome to <br/> Transcendence</h1>
         </div> -->
+        <div class="home-content-container-column"> 
+        </div>
         <div class="animation-container">
   
             <div class="ball"></div>
@@ -28,12 +32,14 @@
             <div class="ball"></div>
             <div class="ball"></div>
             <div class="ball"></div>
-            
           </div> 
         </div>
     </div>
+
     <footer class="footer">
         &copy; 2024 Transcendence
     </footer>
+    <script src="App.js"></script>
+    <script src="./Componants/Pong.js"></script>
 </body>
 </html>
