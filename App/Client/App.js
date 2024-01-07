@@ -47,10 +47,10 @@ function showPage(pageName) {
                 // Add the page to the history stack
                 history.pushState({ pageName }, '', `#${pageName}`);
 
-                if (pageName === 'game') {
+                if (pageName === './Pages/game') {
                     startGame();
                 }
-                if (pageName === 'about') {
+                if (pageName === './Pages/about') {
                     startSlideShow();
                 }
             })
