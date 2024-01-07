@@ -3,7 +3,8 @@ body {
     margin: auto auto;
     padding: 0;
     /* background: linear-gradient(270deg, #b700ff3d, #86017b87); */
-    background: linear-gradient(270deg, #FFF3B0, #E09F3E);
+    /* background: linear-gradient(270deg, #FFF3B0, #E09F3E); */
+    background: linear-gradient(270deg, #1d3136e7, #335C67);
     background-size: 200% 200%;
     animation: Gradient 8s ease infinite;
     padding-bottom: 100px;
