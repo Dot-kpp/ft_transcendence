@@ -4,24 +4,24 @@ let appState = {
     originalContent: null,
 };
 
-// Save the original content and fetch some data from the server when the page loads
-window.addEventListener('load', () => {
-    // Save the original content
-    appState.originalContent = document.getElementById('main-content').innerHTML;
+// // Save the original content and fetch some data from the server when the page loads
+// window.addEventListener('load', () => {
+//     // Save the original content
+//     appState.originalContent = document.getElementById('main-content').innerHTML;
 
-    fetch('/api/some-data')
-        .then(response => response.json())
-        .then(data => {
-            // Update the state of your application with the data
-            appState.someData = data;
+//     fetch('/api/some-data')
+//         .then(response => response.json())
+//         .then(data => {
+//             // Update the state of your application with the data
+//             appState.someData = data;
 
-            // Update the DOM to reflect the new state
-            updateDOM();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-});
+//             // Update the DOM to reflect the new state
+//             updateDOM();
+//         })
+//         .catch(error => {
+//             console.error('Error:', error);
+//         });
+// });
 
 // Function to update the DOM based on the state of the application
 function updateDOM() {
