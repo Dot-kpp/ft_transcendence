@@ -23,13 +23,13 @@ let appState = {
 //         });
 // });
 
-// Function to update the DOM based on the state of the application
-function updateDOM() {
-    // If someData is not null, show the About page
-    if (appState.someData !== null) {
-        showPage('About');
-    }
-}
+// // Function to update the DOM based on the state of the application
+// function updateDOM() {
+//     // If someData is not null, show the About page
+//     if (appState.someData !== null) {
+//         showPage('About');
+//     }
+// }
 
 // Function to show a page
 function showPage(pageName) {
@@ -44,7 +44,7 @@ function showPage(pageName) {
                 // Insert the page content into the main content div
                 document.getElementById('main-content').innerHTML = html;
 
-                // Add the page to the history stack
+                // Add the page to the history stack for back and forward arrows, but the thing is it doesnt solve the refresh problem, we need to look into that
                 history.pushState({ pageName }, '', `#${pageName}`);
 
                 if (pageName === './Pages/game') {
@@ -55,7 +55,7 @@ function showPage(pageName) {
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.log('Error:', error);
             });
     }
 }
@@ -65,7 +65,7 @@ window.addEventListener('popstate', (event) => {
     if (event.state && event.state.pageName) {
         showPage(event.state.pageName);
     } else {
-        // If there's no state, show the index page
+        // If there's no state, show the index page, I want to change this to home content to keep index as our main app loading content pages
         showPage('index');
     }
 });
